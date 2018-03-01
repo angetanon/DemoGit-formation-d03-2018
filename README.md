@@ -9,7 +9,7 @@ depot git de formation git
 ### 3.git add
  > ajout d'un fichier
 ### 4. git commit -m
- > modification dun commit
+ > modification d'un commit
 ### 5. git diff
  > voir la différence entre les derniers commits
 ### 6. git status
