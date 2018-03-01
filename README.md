@@ -16,6 +16,6 @@ depot git de formation git
  > afficher le status du repertoire git local
  
  
- ![GitHub Logo](Documents/logo.png)
+ ![GitHub Logo](logo.png)
 Format: ![Alt Text](url)
 
