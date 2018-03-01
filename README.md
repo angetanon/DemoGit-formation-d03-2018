@@ -16,7 +16,8 @@ depot git de formation git
  > afficher le status du repertoire git local
 ### 7. git show
  > Montres les variétés de types d'objet
- 
+ ### 8. git push
+ > envoie les modifications au serveur distant
  
 
 
