@@ -14,4 +14,8 @@ depot git de formation git
  > voir la différence entre les derniers commits
 6.git status
  > afficher le status du repertoire git local
+ 
+ 
+ ![GitHub Logo](Documents/logo.png)
+Format: ![Alt Text](url)
 
