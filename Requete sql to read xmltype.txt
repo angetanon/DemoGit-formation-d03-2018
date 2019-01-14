@@ -1,0 +1,35 @@
+SELECT * from rpuf_programme WHERE XMLCAST(EXTRACT(PRG_METADATA, '/MTS/MT[@TYPE="ATGRESPONSE"]/text()') AS CLOB) LIKE '%INF_CINEMA_SAGA_BESSON%' AND PRG_CTN_ID='PACK';
+
+
+SELECT * from rpuf_programme WHERE XMLCAST(EXTRACT(PRG_SURCHARGE, '/CONTENT/LOCALISATIONS/LOCALISATIONS/ATGRESPONSE/text()') AS CLOB) LIKE '%INF_CINEMA_SAGA_BESSON%' AND PRG_CTN_ID='PACK';
+
+SELECT XMLCAST(PRG_SURCHARGE AS CLOB) FROM  rpuf_programme where prg_id=9533818;
+
+/*
+WITH q AS ( SELECT XMLTYPE ( 'PRG_SURCHARGE' ) AS col1 FROM rpuf_programme )
+
+SELECT q.PRG_SURCHARGE, XMLTYPE.GETCLOBVAL ( q.col1 )
+
+  FROM rpuf_programme ;*/
+
+
+
+SELECT XMLTYPE.GETCLOBVAL(prg_metada) FROM  rpuf_programme where PRG_CTN_ID='PACK' and XMLCAST(EXTRACT(PRG_SURCHARGE, '/CONTENT/LOCALISATIONS/LOCALISATIONS/DEFINITION/text()') AS CLOB) LIKE '%cls-programmes-avec-des-braquages-en-huis-clos%';
+
+
+and XMLCAST(EXTRACT(prg_metadata, '/MTS/MT[@TYPE="DEFINITION"]/text()') AS CLOB) LIKE '%cls-programmes-avec-des-braquages-en-huis-clos%' 
+
+SELECT XMLTYPE.GETCLOBVAL(PRG_SURCHARGE),rpuf_programme.* from rpuf_programme WHERE 
+( (XMLCAST(EXTRACT(PRG_SURCHARGE, '/CONTENT/LOCALISATIONS/LOCALISATIONS/DEFINITION/text()') AS CLOB) LIKE '%creplay_chaine_deutschegrammophon_compositeurs_bach%' 
+ AND PRG_TYP_ID ='CLUSTER' 
+ )
+ 
+ OR (XMLCAST(EXTRACT(PRG_SURCHARGE, '/CONTENT/LOCALISATIONS/LOCALISATIONS/ATGRESPONSE/text()') AS CLOB) LIKE '%creplay_chaine_deutschegrammophon_compositeurs_bach%'  
+ AND PRG_TYP_ID='COLLECTION'
+ )
+ OR (XMLCAST(EXTRACT(PRG_SURCHARGE, '//ATGRESPONSE/text()') AS CLOB) LIKE '%creplay_chaine_deutschegrammophon_compositeurs_bach%'  
+ AND PRG_TYP_ID='AUTRE'
+))
+ 
+ AND PRG_CTN_ID='PACK';
+ 
